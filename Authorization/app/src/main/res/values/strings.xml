@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Authorization</string>
+    <string name="edit_login">Enter the login</string>
+    <string name="edit_password">Enter the password</string>
+    <string name="button_log_in">Log in</string>
+    <string name="description_logo">Logo of chdtu</string>
+</resources>
