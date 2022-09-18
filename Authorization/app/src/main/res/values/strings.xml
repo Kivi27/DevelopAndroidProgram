@@ -4,4 +4,6 @@
     <string name="edit_password">Enter the password</string>
     <string name="button_log_in">Log in</string>
     <string name="description_logo">Logo of chdtu</string>
+    <string name="correct_email">admin@gmail.com</string>
+    <string name="correct_password">admin</string>
 </resources>
