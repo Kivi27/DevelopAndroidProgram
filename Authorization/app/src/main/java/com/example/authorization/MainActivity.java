@@ -29,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
         String correctPassword = getResources().getString(R.string.correct_password);
 
         if (userEmail.equals(correctEmail) && userPassword.equals(correctPassword)) {
-            Log.d("Authorization log", "Go to profile");
+            Log.d("Authorization", "Go to profile");
             Intent intentProfile = new Intent(this, ProfileActivity.class);
             startActivity(intentProfile);
         } else {
-            Log.d("Authorization log","login or password incorrect");
+            Log.d("Authorization","login or password incorrect");
             Toast msgIncorrect = Toast.makeText(this, "Incorrect login or password", Toast.LENGTH_SHORT);
             msgIncorrect.show();
         }

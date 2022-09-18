@@ -7,14 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private void showChildren(View v, List<TextView> allTextView) {
+    private void getAllTextView(View v, List<TextView> allTextView) {
         ViewGroup viewgroup = (ViewGroup) v;
         for (int i = 0;i < viewgroup.getChildCount(); i++) {
             View v1 = viewgroup.getChildAt(i);
@@ -23,7 +21,7 @@ public class ProfileActivity extends AppCompatActivity {
                 allTextView.add(curTextView);
             }
             if (v1 instanceof ViewGroup) {
-                showChildren(v1, allTextView);
+                getAllTextView(v1, allTextView);
             }
         }
     }
@@ -36,15 +34,16 @@ public class ProfileActivity extends AppCompatActivity {
         InformEducation testInformEducation = new InformEducation("Бакалавр","Факультет інформаційних " +
                 "технологій і систем", "122 - Комп'ютерні науки", "Комп’ютерні " +
                 "науки та прикладне програмування");
-        Student testStudent = new Student("Rostyslav", "Liashenko", "Ivanovich",
+        Student testStudent = new Student("Ростислав", "Ляшенко", "Іванович",
                 3, "КНС-2201", testInformEducation);
 
         List<TextView> allTextView = new ArrayList<>();
-        showChildren(getWindow().getDecorView(), allTextView);
+        getAllTextView(getWindow().getDecorView(), allTextView);
 
-        for (int i = 0; i < allTextView.size(); i++) {
+        String[] infoAboutStudent = testStudent.toString().split(";");
+        for (int i = 0; i < infoAboutStudent.length; i++) {
             TextView curTextView = allTextView.get(i);
-            curTextView.setText("TextView_" + i);
+            curTextView.setText(infoAboutStudent[i]);
         }
 
     }
