@@ -6,13 +6,17 @@ public class Student extends User{
     private String name;
     private String surname;
     private String middleName;
+    private int course;
+    private String nameGroup;
     private InformEducation informEducation;
 
-    public Student(String name, String surname, String middleName, InformEducation informEducation) {
+    public Student(String name, String surname, String middleName, int course, String nameGroup, InformEducation informEducation) {
         this.name = name;
         this.surname = surname;
         this.middleName = middleName;
         this.informEducation = informEducation;
+        this.course = course;
+        this.nameGroup = nameGroup;
     }
 
     @Override
@@ -27,4 +31,10 @@ public class Student extends User{
                 anotherStudent.middleName.equals(middleName) &&
                 anotherStudent.informEducation.equals(informEducation);
     }
+
+    @Override
+    public String toString() {
+        return surname + " " + name + " " + middleName + ";" + nameGroup + ";" +  course + ";" + informEducation.toString();
+    }
+
 }
