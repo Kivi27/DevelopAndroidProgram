@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Authorization"
         tools:targetApi="31">
         <activity
-            android:name=".profile"
+            android:name=".ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
