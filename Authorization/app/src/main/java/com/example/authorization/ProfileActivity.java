@@ -13,10 +13,11 @@ import java.util.List;
 public class ProfileActivity extends AppCompatActivity {
 
     private void getAllTextView(View v, List<TextView> allTextView) {
+        String plug = getResources().getString(R.string.plug);
         ViewGroup viewgroup = (ViewGroup) v;
         for (int i = 0;i < viewgroup.getChildCount(); i++) {
             View v1 = viewgroup.getChildAt(i);
-            if (v1 instanceof TextView) {
+            if (v1 instanceof TextView && ((TextView) v1).getText().equals(plug)) {
                 TextView curTextView = (TextView) v1;
                 allTextView.add(curTextView);
             }
@@ -45,6 +46,5 @@ public class ProfileActivity extends AppCompatActivity {
             TextView curTextView = allTextView.get(i);
             curTextView.setText(infoAboutStudent[i]);
         }
-
     }
 }

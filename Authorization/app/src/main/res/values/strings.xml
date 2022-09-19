@@ -6,4 +6,11 @@
     <string name="description_logo">Logo of chdtu</string>
     <string name="correct_email">admin@gmail.com</string>
     <string name="correct_password">admin</string>
+    <string name="lbl_group">Група</string>
+    <string name="lbl_course">Курс</string>
+    <string name="lbl_education_degree">Освітній ступінь</string>
+    <string name="lbl_facult">Факультет</string>
+    <string name="lbl_speciality">Спеціальність</string>
+    <string name="lbl_education_program">Освітня програма</string>
+    <string name="plug">plug</string>
 </resources>
