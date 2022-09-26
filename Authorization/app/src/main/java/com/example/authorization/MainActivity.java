@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText editLogin;
+    EditText editPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +20,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void doLogin(View view) {
-        EditText editLogin = findViewById(R.id.editTextTextEmailAddress);
-        EditText editPassword = findViewById(R.id.editTextTextPassword2);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        editLogin = findViewById(R.id.editTextTextEmailAddress);
+        editPassword = findViewById(R.id.editTextTextPassword2);
+        clearLoginPassword();
+    }
 
+    private void clearLoginPassword() {
+        editLogin.getText().clear();
+        editPassword.getText().clear();
+    }
+
+    public void doLogin(View view) {
         String userEmail = editLogin.getText().toString();
         String userPassword = editPassword.getText().toString();
 
@@ -34,8 +46,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intentProfile);
         } else {
             Log.d("Authorization","login or password incorrect");
-            editLogin.getText().clear();
-            editPassword.getText().clear();
+            clearLoginPassword();
             Toast msgIncorrect = Toast.makeText(this, "Incorrect login or password", Toast.LENGTH_SHORT);
             msgIncorrect.show();
         }
