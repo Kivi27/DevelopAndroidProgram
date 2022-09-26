@@ -5,14 +5,14 @@ import androidx.annotation.Nullable;
 public class Student extends User {
 
     private int course;
-    private String nameGroup;
-    private InformEducation informEducation;
+    private String groupName;
+    private EducationInfo educationInfo;
 
-    public Student(String name, String surname, String middleName, int course, String nameGroup, InformEducation informEducation) {
+    public Student(String name, String surname, String middleName, int course, String nameGroup, EducationInfo educationInfo) {
         super(name, surname, middleName);
-        this.informEducation = informEducation;
-        this.course = course;
-        this.nameGroup = nameGroup;
+        this.educationInfo = educationInfo;
+        this.course = course; 
+        this.groupName = nameGroup;
     }
 
     @Override
@@ -25,12 +25,12 @@ public class Student extends User {
 
         return anotherStudent.name.equals(name) && anotherStudent.surname.equals(surname) &&
                 anotherStudent.middleName.equals(middleName) &&
-                anotherStudent.informEducation.equals(informEducation);
+                anotherStudent.educationInfo.equals(educationInfo);
     }
 
     @Override
     public String toString() {
-        return super.toString() + nameGroup + ";" +  course + ";" + informEducation.toString();
+        return super.toString() + groupName + ";" +  course + ";" + educationInfo.toString();
     }
 
 }

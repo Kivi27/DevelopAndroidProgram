@@ -3,14 +3,14 @@ package com.example.authorization;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class InformEducation {
+public class EducationInfo {
 
     private String faculty;
     private String specialty;
     private String educationProgram;
     private String educationDegree;
 
-    public InformEducation(String educationDegree, String faculty, String specialty, String educationProgram) {
+    public EducationInfo(String educationDegree, String faculty, String specialty, String educationProgram) {
         this.educationDegree = educationDegree;
         this.faculty = faculty;
         this.specialty = specialty;
@@ -31,11 +31,11 @@ public class InformEducation {
 
     @Override
     public boolean equals(@Nullable Object obj) {
-        if (!(obj instanceof InformEducation)) {
+        if (!(obj instanceof EducationInfo)) {
             return false;
         }
 
-        InformEducation otherInformEdu = (InformEducation) obj;
+        EducationInfo otherInformEdu = (EducationInfo) obj;
         return otherInformEdu.faculty.equals(faculty) &&
                 otherInformEdu.specialty.equals(specialty) &&
                 otherInformEdu.educationProgram.equals(educationProgram);

@@ -32,11 +32,11 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        InformEducation testInformEducation = new InformEducation("Бакалавр","Факультет інформаційних " +
+        EducationInfo testEducationInfo = new EducationInfo("Бакалавр","Факультет інформаційних " +
                 "технологій і систем", "122 - Комп'ютерні науки", "Комп’ютерні " +
                 "науки та прикладне програмування");
         Student testStudent = new Student("Ростислав", "Ляшенко", "Іванович",
-                3, "КНС-2201", testInformEducation);
+                3, "КНС-2201", testEducationInfo);
 
         List<TextView> allTextView = new ArrayList<>();
         getAllTextView(getWindow().getDecorView(), allTextView);
