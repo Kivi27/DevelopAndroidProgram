@@ -13,4 +13,5 @@
     <string name="lbl_speciality">Спеціальність</string>
     <string name="lbl_education_program">Освітня програма</string>
     <string name="plug">plug</string>
+    <string name="button_log_out">Log out</string>
 </resources>

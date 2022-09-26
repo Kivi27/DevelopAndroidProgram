@@ -2,6 +2,7 @@ package com.example.authorization;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,5 +47,10 @@ public class ProfileActivity extends AppCompatActivity {
             TextView curTextView = allTextView.get(i);
             curTextView.setText(infoAboutStudent[i]);
         }
+    }
+
+    public void exitToLoginPage(View view) {
+        Intent intentLogin = new Intent(this, MainActivity.class);
+        startActivity(intentLogin);
     }
 }

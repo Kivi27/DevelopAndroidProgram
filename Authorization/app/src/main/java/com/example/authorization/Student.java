@@ -11,7 +11,7 @@ public class Student extends User {
     public Student(String name, String surname, String middleName, int course, String nameGroup, EducationInfo educationInfo) {
         super(name, surname, middleName);
         this.educationInfo = educationInfo;
-        this.course = course; 
+        this.course = course;
         this.groupName = nameGroup;
     }
 
