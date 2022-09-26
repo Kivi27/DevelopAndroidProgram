@@ -2,18 +2,14 @@ package com.example.authorization;
 
 import androidx.annotation.Nullable;
 
-public class Student extends User{
-    private String name;
-    private String surname;
-    private String middleName;
+public class Student extends User {
+
     private int course;
     private String nameGroup;
     private InformEducation informEducation;
 
     public Student(String name, String surname, String middleName, int course, String nameGroup, InformEducation informEducation) {
-        this.name = name;
-        this.surname = surname;
-        this.middleName = middleName;
+        super(name, surname, middleName);
         this.informEducation = informEducation;
         this.course = course;
         this.nameGroup = nameGroup;
@@ -34,7 +30,7 @@ public class Student extends User{
 
     @Override
     public String toString() {
-        return surname + " " + name + " " + middleName + ";" + nameGroup + ";" +  course + ";" + informEducation.toString();
+        return super.toString() + nameGroup + ";" +  course + ";" + informEducation.toString();
     }
 
 }
