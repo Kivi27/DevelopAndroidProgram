@@ -26,6 +26,22 @@ public class User {
                 anotherUser.middleName.equals(middleName);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public String getFullName() {
+        return getSurname() + " " + getMiddleName() + " " + getName();
+    }
+
     @NonNull
     @Override
     public String toString() {

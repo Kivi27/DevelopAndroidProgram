@@ -17,17 +17,13 @@ public class EducationInfo {
         this.educationProgram = educationProgram;
     }
 
-    public String getFaculty() {
-        return faculty;
-    }
+    public String getFaculty() { return faculty; }
 
-    public String getSpecialty() {
-        return specialty;
-    }
+    public String getSpecialty() { return specialty; }
 
-    public String getEducationProgram() {
-        return educationProgram;
-    }
+    public String getEducationProgram() { return educationProgram; }
+
+    public String getEducationDegree() { return educationDegree; }
 
     @Override
     public boolean equals(@Nullable Object obj) {

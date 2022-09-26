@@ -15,6 +15,18 @@ public class Student extends User {
         this.groupName = nameGroup;
     }
 
+    public int getCourse() { return course; }
+
+    public String getGroupName() { return groupName; }
+
+    public String getFaculty() { return educationInfo.getFaculty(); }
+
+    public String getSpecialty() { return educationInfo.getSpecialty(); }
+
+    public String getEducationProgram() { return educationInfo.getEducationProgram(); }
+
+    public String getEducationDegree() { return educationInfo.getEducationDegree(); }
+
     @Override
     public boolean equals(@Nullable Object obj) {
         if (!(obj instanceof Student)) {
@@ -32,5 +44,4 @@ public class Student extends User {
     public String toString() {
         return super.toString() + groupName + ";" +  course + ";" + educationInfo.toString();
     }
-
 }
