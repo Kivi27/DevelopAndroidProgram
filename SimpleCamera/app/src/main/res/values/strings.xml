@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SimpleCamera</string>
+    <string name="btn_frontCamera">Front Camera</string>
+    <string name="btn_backCamera">Back Camerea</string>
+    <string name="btn_makePhoto">Make Photo</string>
+</resources>
