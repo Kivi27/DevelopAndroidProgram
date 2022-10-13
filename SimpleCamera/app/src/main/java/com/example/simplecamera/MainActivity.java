@@ -166,8 +166,6 @@ public class MainActivity extends AppCompatActivity {
             }
             catch (CameraAccessException e) {
                 e.printStackTrace();
-
-
             }
         }
 
@@ -176,7 +174,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onImageAvailable(ImageReader reader) {
-
                 mBackgroundHandler.post(new ImageSaver(reader.acquireNextImage(), mFile));
             }
 
@@ -293,6 +290,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void run() {
+            Log.d(LOG_TAG, "run in ImageSaver");
             ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
             byte[] bytes = new byte[buffer.remaining()];
             buffer.get(bytes);
