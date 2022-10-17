@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.listviewwithbackend.pojo.User;
 import com.example.listviewwithbackend.retorfit.NetworkService;
@@ -24,10 +26,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ShowAllUsersInListView();
     }
 
-    public void ShowAllUsersInListView() {
+    public void ShowAllUsersInListView(View view) {
         NetworkService.getInstance()
                 .getJSONApi()
                 .getAllUsers()
@@ -47,10 +48,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Call<ArrayList<User>> call, @NonNull Throwable t) {
                         t.printStackTrace();
-                        listView.setAdapter(null);
-                        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this,
-                                android.R.layout.simple_list_item_1, new String[] {"Error!"});
-                        listView.setAdapter(adapter);
+                        Toast.makeText(MainActivity.this,
+                                "Error! Don't get Data!", Toast.LENGTH_SHORT).show();
                     }
 
                     public void sendUsersInListView() {
