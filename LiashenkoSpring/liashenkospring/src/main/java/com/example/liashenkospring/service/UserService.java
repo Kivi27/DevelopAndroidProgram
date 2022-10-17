@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class UserService {
 
@@ -28,6 +30,14 @@ public class UserService {
             throw new UserNotFoundException("User not found!!!");
         }
         return com.example.liashenkospring.model.User.toModel(userEntity);
+    }
+
+    public ArrayList<UserEntity> getAll() {
+        ArrayList<UserEntity> userEntities = new ArrayList<>();
+        for (var userEntity : userRepo.findAll()) {
+            userEntities.add(userEntity);
+        }
+        return userEntities;
     }
 
     public Long delete(Long id) {
