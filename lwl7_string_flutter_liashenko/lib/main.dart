@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Лабораторна робота №4 - обробка рядка',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
       ),
       home: const StringProcessingHomePage(
           title: 'ЛР №4 - Оброка рядка - Стартова Сторінка'),
@@ -32,7 +31,22 @@ class StringProcessingHomePage extends StatefulWidget {
 }
 
 class _StringProcessingHomePageState extends State<StringProcessingHomePage> {
-  final textEditCtr = TextEditingController();
+  final _textEditCtr = TextEditingController();
+  String _res = "Результат: ";
+
+  void _processingString() {
+    setState(() {
+      int countBigLetter = 0;
+      String newStr = _textEditCtr.text.replaceAll(RegExp('[^A-Za-z\u0406\u0407\u0456\u0457\u0401\u0451\u0410-\u044f]'),'');
+      for (int i = 0; i < newStr.length; i++) {
+        if (newStr[i] == newStr[i].toUpperCase()) {
+          countBigLetter++;
+        }
+      }
+      int countSmallLetter = newStr.length - countBigLetter;
+      _res = "Кількість великих буква: $countBigLetter,\n малих букв: $countSmallLetter";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +61,7 @@ class _StringProcessingHomePageState extends State<StringProcessingHomePage> {
             const Padding(
               padding: EdgeInsets.only(top: 16, right: 4, bottom: 8, left: 4),
               child: Text(
-                'Зробити першу половину букв рядка великими',
+                'Показати кількість великих і малих букв в рядку',
                 style: TextStyle(fontSize: 22.0),
                 textAlign: TextAlign.center,
               ),
@@ -55,7 +69,7 @@ class _StringProcessingHomePageState extends State<StringProcessingHomePage> {
             Padding(
               padding: const EdgeInsets.only(top: 16, right: 8, bottom: 8, left: 8),
               child: TextField(
-                controller: textEditCtr,
+                controller: _textEditCtr,
                 decoration: const InputDecoration(
                   border: UnderlineInputBorder(),
                   hintText: 'Введіть рядок',
@@ -63,19 +77,15 @@ class _StringProcessingHomePageState extends State<StringProcessingHomePage> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {
-                String stringVal = textEditCtr.text;
-                for (int i = 0; i < stringVal.length; i++) {
-
-                }
-              },
+              onPressed: _processingString,
               child: const Text('Обробити'),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 16, right: 4, bottom: 8, left: 4),
+            Padding(
+              padding: const EdgeInsets.only(top: 16, right: 4, bottom: 8, left: 4),
               child: Text(
-                'Результат',
-                style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+                _res,
+                style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
             ),
           ],
