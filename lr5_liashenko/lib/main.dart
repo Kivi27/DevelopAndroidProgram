@@ -40,7 +40,7 @@ class _StringProcessingHomePageState extends State<StringProcessingHomePage> {
   ];
 
   int curIndex = 0;
-  String dropdownvalue = 'К-сть великих і малих';
+  String dropdownValue = 'К-сть великих і малих';
 
   void _getCountBigAndSmall() {
     setState(() {
@@ -118,19 +118,19 @@ class _StringProcessingHomePageState extends State<StringProcessingHomePage> {
             Padding(
               padding: const EdgeInsets.only(top: 16, right: 8, bottom: 8, left: 8),
               child: DropdownButton(
-                value: dropdownvalue,
+                value: dropdownValue,
                 icon: const Icon(Icons.keyboard_arrow_down),
 
-                items: items.map((String items) {
+                items: items.map((String item) {
                   return DropdownMenuItem(
-                    value: items,
-                    child: Text(items),
+                    value: item,
+                    child: Text(item),
                   );
                 }).toList(),
 
                 onChanged: (String? newValue) {
                   setState(() {
-                    dropdownvalue = newValue!;
+                    dropdownValue = newValue!;
                     curIndex = items.indexOf(newValue);
                   });
                 },
